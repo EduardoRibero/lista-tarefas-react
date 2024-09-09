@@ -6,8 +6,13 @@ function App(){
     const [item, setItem] = useState("") // definimos o valor do 'imput' como uma variavel para manipular o seu valor e estado. 
 
     function add(){
-        setTarefas([...tarefas, item])
-        setItem("")
+        console.log(item)
+        if(item == ""){
+            
+        }else{
+            setTarefas([...tarefas, item])
+            setItem("")
+        }
     }
 
     function delet(i){
