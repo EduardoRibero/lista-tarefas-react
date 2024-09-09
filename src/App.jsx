@@ -3,19 +3,23 @@ import { useState } from "react";
 function App(){
 
     const [tarefas, setTarefas] = useState(["Lavar o carro", "Arrumar a casa","Estudar python"])
-    const [item, setItem] = useState("")
+    const [item, setItem] = useState("") // definimos o valor do 'imput' como uma variavel para manipular o seu valor e estado. 
 
     function add(){
         setTarefas([...tarefas, item])
         setItem("")
     }
 
+    function delet(i){
+        setTarefas(tarefas.filter((item, e) => e !== i))
+    }
+
     return (<div>
         <h1>Lista de tarefas</h1>
 
         <ul>
-            {tarefas.map((tarefa) =>(
-                <li>{tarefa}</li>
+            {tarefas.map((tarefa, i) =>(
+                <li key={i}>{tarefa} <button onClick={() => delet(i)}>delet</button></li>
             ))}
         </ul>
 
